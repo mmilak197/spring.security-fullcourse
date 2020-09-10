@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+import java.util.concurrent.TimeUnit;
+
 import static mmilak.dev.spring.securityfullcourse.security.ApplicationUserPermission.*;
 import static mmilak.dev.spring.securityfullcourse.security.ApplicationUserRole.*;
 
@@ -78,6 +80,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/courses", true)
                 .and()
-                .rememberMe(); //default to 2 weeks
+                .rememberMe()
+                    .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21)) //default to 2 weeks
+                    .key("somethingverysecured");
+
     }
 }
