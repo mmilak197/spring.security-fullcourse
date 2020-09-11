@@ -1,7 +1,7 @@
-# Simple Application use Spring Security
+# Simple Application to use Spring Security
 
 Application create in Spring Security allows send credentials like 
-(username and password) verify if pass user exist. If exist application generate
+(username and password) verifies if pass user exist. If exist application generate
 token which consist information about user authorities.
 
 Application have a fake database with three type of users:
@@ -23,13 +23,13 @@ Send POST request on endpoint http://localhost:8080/login with body for example:
 }'
 
 ## Protip
-To view the permissions you need to go https://jwt.io/ and paste generate token,
+To view the permissions you need to go https://jwt.io/ and paste generated token,
 on the right side in 'Payload' section you can see all authorities.
 
 ## If you want get student list 
 Send GET request
 on http://localhost:8080/management/api/v1/students
-and set type Authorization on Bearer Token and paste generate previous token.
+and set type Authorization on Bearer Token and paste generated previous token.
 If token will be correct response from server will be contain information 
 about student list
 
